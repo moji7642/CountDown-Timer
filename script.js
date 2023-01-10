@@ -5,7 +5,7 @@ const secondsEl = document.getElementById("seconds");
 
 const newBegin = "10 Feb 2023";
 
-function countdown() {
+function countdown(formatTime) {
   const newBeginDate = new Date(newBegin);
   const currentBegin = new Date();
 
@@ -17,13 +17,12 @@ function countdown() {
   const seconds = Math.floor(totalSeconds) % 60;
 
   daysEl.innerHTML = days;
-  hoursEl.innerHTML = hours;
-  minsEl.innerHTML = mins;
-  secondsEl.innerHTML = seconds;
-}
-
-function formatTime(time) {
-  return time < 10 ? `0${time}` : time;
+  hoursEl.innerHTML = formatTime(hours);
+  minsEl.innerHTML = formatTime(mins);
+  secondsEl.innerHTML = formatTime(seconds);
+  function formatTime(time) {
+    return time < 10 ? `0${time}` : time;
+  }
 }
 
 //initial call
